@@ -1,4 +1,4 @@
-const { exceptionHandler } = require("../../utils/errors");
+const { exceptionHandler } = require("../utils/errors");
 const { Role } = require("../roles/models");
 const { User } = require("../users/models");
 

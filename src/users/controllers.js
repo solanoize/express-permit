@@ -1,7 +1,7 @@
-const { exceptionHandler } = require("../../utils/errors");
-const { filterSearch } = require("../../utils/filters");
-const { makeJWTToken } = require("../../utils/helpers");
-const { buildPagination } = require("../../utils/paginations");
+const { exceptionHandler } = require("../utils/errors");
+const { filterSearch } = require("../utils/filters");
+const { makeJWTToken } = require("../utils/helpers");
+const { buildPagination } = require("../utils/paginations");
 const { Role } = require("../roles/models");
 const { User } = require("./models");
 const { userValidationCreate } = require("./validations");

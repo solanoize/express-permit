@@ -1,5 +1,5 @@
-const { textField, itemsField } = require("../../utils/fields");
-const { validationMiddleware } = require("../../utils/middlewares");
+const { textField, itemsField } = require("../utils/fields");
+const { validationMiddleware } = require("../utils/middlewares");
 const { Permission } = require("../permissions/models");
 
 const roleValidationCreate = validationMiddleware([

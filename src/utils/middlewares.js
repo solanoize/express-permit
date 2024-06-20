@@ -3,9 +3,9 @@ const jwt = require("jsonwebtoken");
 const _ = require("lodash");
 const { logger } = require("./helpers");
 const { Error401, exceptionHandler, Error403 } = require("./errors");
-const { User } = require("../apps/users/models");
-const { Role } = require("../apps/roles/models");
-const { Permission } = require("../apps/permissions/models");
+const { User } = require("../users/models");
+const { Role } = require("../roles/models");
+const { Permission } = require("../permissions/models");
 
 const validationMiddleware = (validations) => {
   return async (req, res, next) => {
@@ -32,7 +32,7 @@ const jwtAuthMiddleware = async (req, res, next) => {
 
     if (!token) {
       logger.error("Token is required for authentication");
-      throw new Error401("Token is required for authentication");
+      throw new Error401();
     }
 
     const decode = jwt.verify(token, process.env.API_TOKEN);
@@ -41,17 +41,17 @@ const jwtAuthMiddleware = async (req, res, next) => {
 
     if (!user) {
       logger.error("Invalid user credentials");
-      throw new Error401("Invalid user credentials");
+      throw new Error401();
     }
 
     if (!user.isSuperuser && !role) {
       logger.error("User has not role or role not available on system");
-      throw new Error401("User has not role or role not available on system");
+      throw new Error401();
     }
 
     if (!user.isActive) {
       logger.error("Your account is inactive");
-      throw new Error401("Your account is inactive");
+      throw new Error401();
     }
 
     res.locals.user = user;
@@ -76,15 +76,14 @@ const hasPermissionsMiddleware = (permissions = []) => {
       });
 
       if (totalAccess !== permissions.length) {
-        throw new Error403("Access is not owned by the system");
+        throw new Error403();
       }
 
       const { role } = res.locals;
 
       if (!role) {
-        throw new Error403(
-          `Permission denied, you don't have role for accessing resource.`
-        );
+        logger.log(`Permission denied, you don't have role for accessing resource.`)
+        throw new Error403();
       }
 
       const roleSet = new Set(role.accessList);
@@ -98,13 +97,10 @@ const hasPermissionsMiddleware = (permissions = []) => {
 
       for (let p of permissions) {
         if (!roleSet.has(p)) {
-          const [action, model] = p.split("-");
           logger.error(
             "Permission denied, you are not allowed to access this resource."
           );
-          throw new Error403(
-            `Permission denied, you are not allowed to access ${action.toUpperCase()} ${model.toUpperCase()}.`
-          );
+          throw new Error403();
         }
       }
 

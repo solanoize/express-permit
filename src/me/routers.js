@@ -5,7 +5,7 @@ const {
   meAccessController,
 } = require("./controllers");
 const { meUpdateValidationBody } = require("./validations");
-const { jwtAuthMiddleware } = require("../../utils/middlewares");
+const { jwtAuthMiddleware } = require("../utils/middlewares");
 
 const meRouter = express.Router();
 

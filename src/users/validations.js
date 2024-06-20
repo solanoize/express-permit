@@ -1,5 +1,5 @@
 const bcrypt = require("bcryptjs");
-const { validationMiddleware } = require("../../utils/middlewares");
+const { validationMiddleware } = require("../utils/middlewares");
 const { Role } = require("../roles/models");
 const { User } = require("./models");
 const {
@@ -8,7 +8,7 @@ const {
   passwordField,
   booleanField,
   objectIDField,
-} = require("../../utils/fields");
+} = require("../utils/fields");
 
 const userValidationCreate = validationMiddleware([
   textField("firstName"),

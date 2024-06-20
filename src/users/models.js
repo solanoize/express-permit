@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { configSchema } = require("../../utils/databases");
+const { configSchema } = require("../utils/databases");
 
 const userObject = {
   firstName: { type: String, default: "" },

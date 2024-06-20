@@ -7,16 +7,12 @@ const {
   roleDeleteController,
 } = require("./controllers");
 const {
-  roleValidationCustomAccessList,
   roleValidationCreate,
   roleValidationUpdate,
 } = require("./validations");
 const {
   jwtAuthMiddleware,
-  hasPermissionsMiddleware,
-  validationMiddleware,
-} = require("../../utils/middlewares");
-const { textField, itemsField } = require("../../utils/fields");
+} = require("../utils/middlewares");
 const {
   rolePermissionRead,
   rolePermissionCreate,

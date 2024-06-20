@@ -7,7 +7,7 @@ const {
   userSignInController,
   userDeleteController,
 } = require("./controllers");
-const { jwtAuthMiddleware } = require("../../utils/middlewares");
+const { jwtAuthMiddleware } = require("../utils/middlewares");
 const {
   userValidationCreate,
   userValidationUpdate,

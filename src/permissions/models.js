@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { configSchema } = require("../../utils/databases");
+const { configSchema } = require("../utils/databases");
 
 const permissionObject = {
   model: { type: String, required: true },

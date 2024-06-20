@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 const { Permission } = require("./models");
-const { PREFIX_PERMISSIONS } = require("../../utils/constants");
-const { exceptionHandler, Error404 } = require("../../utils/errors");
-const { filterSearch } = require("../../utils/filters");
-const { buildPagination } = require("../../utils/paginations");
+const { PREFIX_PERMISSIONS } = require("../utils/constants");
+const { exceptionHandler } = require("../utils/errors");
+const { filterSearch } = require("../utils/filters");
+const { buildPagination } = require("../utils/paginations");
 
 const permissionListController = async (req, res) => {
   try {

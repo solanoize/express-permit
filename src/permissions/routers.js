@@ -3,7 +3,7 @@ const {
   permissionListController,
   permissionGenerateController,
 } = require("./controllers");
-const { jwtAuthMiddleware } = require("../../utils/middlewares");
+const { jwtAuthMiddleware } = require("../utils/middlewares");
 const { permissionRead, permissionCreate } = require("./permissions");
 
 const permissionRouter = express.Router();

@@ -1,6 +1,6 @@
-const { exceptionHandler } = require("../../utils/errors");
-const { filterSearch, getObjectOr404 } = require("../../utils/filters");
-const { buildPagination } = require("../../utils/paginations");
+const { exceptionHandler } = require("../utils/errors");
+const { filterSearch, getObjectOr404 } = require("../utils/filters");
+const { buildPagination } = require("../utils/paginations");
 const { Role } = require("./models");
 
 const roleListController = async (req, res) => {

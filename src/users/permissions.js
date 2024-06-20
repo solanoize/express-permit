@@ -1,4 +1,4 @@
-const { hasPermissionsMiddleware } = require("../../utils/middlewares");
+const { hasPermissionsMiddleware } = require("../utils/middlewares");
 
 const userPermissionRead = hasPermissionsMiddleware(["read-users"]);
 

@@ -4,11 +4,11 @@ const { program } = require("commander");
 
 const bcrypt = require("bcryptjs");
 const { connectDB } = require("./src/utils/databases");
-const { User } = require("./src/apps/users/models");
+const { User } = require("./src/users/models");
 const { logger } = require("./src/utils/helpers");
 const { default: mongoose } = require("mongoose");
 const { PREFIX_PERMISSIONS } = require("./src/utils/constants");
-const { Permission } = require("./src/apps/permissions/models");
+const { Permission } = require("./src/permissions/models");
 
 connectDB();
 

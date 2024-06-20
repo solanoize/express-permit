@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { configSchema } = require("../../utils/databases");
+const { configSchema } = require("../utils/databases");
 
 const roleObject = {
   name: { type: String, required: true, unique: true },
