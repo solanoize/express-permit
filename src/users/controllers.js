@@ -4,7 +4,6 @@ const { makeJWTToken } = require("../utils/helpers");
 const { buildPagination } = require("../utils/paginations");
 const { Role } = require("../roles/models");
 const { User } = require("./models");
-const { userValidationCreate } = require("./validations");
 
 const userListController = async (req, res) => {
   try {
@@ -19,7 +18,6 @@ const userListController = async (req, res) => {
 
 const userCreateController = async (req, res) => {
   try {
-    await userValidationCreate(res);
     await User.create(res.locals.matchedData);
     const { password, ...payload } = res.locals.matchedData;
     return res.status(201).json(payload);
