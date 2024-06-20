@@ -1,0 +1,23 @@
+const PREFIX_READ = "read";
+const PREFIX_CREATE = "create";
+const PREFIX_UPDATE = "update";
+const PREFIX_DELETE = "delete";
+const PREFIX_PERMISSIONS = [
+  PREFIX_READ,
+  PREFIX_CREATE,
+  PREFIX_UPDATE,
+  PREFIX_DELETE,
+];
+
+const ERROR_TYPE_DETAIL = "detail-error";
+const ERROR_TYPE_VALIDATION = "validation-error";
+
+module.exports = {
+  PREFIX_READ,
+  PREFIX_CREATE,
+  PREFIX_UPDATE,
+  PREFIX_DELETE,
+  PREFIX_PERMISSIONS,
+  ERROR_TYPE_DETAIL,
+  ERROR_TYPE_VALIDATION,
+};
