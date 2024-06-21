@@ -17,22 +17,11 @@ const textField = (name, optional = false) => {
   return f;
 };
 
-const numberField = (name, min = 0, max = 0, optional = false) => {
-  let message = "";
-
-  if (min === 0 && max > 0) {
-    message = `Nilai maksimum yang diperbolehkan adalah ${max}.`;
-  } else if (min > 0 && max === 0) {
-    message = `Nilai minimum yang diperbolehkan adalah ${min}.`;
-  } else if (min > 0 && max > 0) {
-    message = `Rentang yang diperbolehkan: ${min} s/d ${max}.`;
-  }
-
+const numberField = (name, optional = false) => {
   const f = field(name, optional);
-  f.isNumeric()
+  f.isInt()
     .bail()
     .withMessage("Harap pastikan nilai yang dimasukkan adalah bilangan bulat.");
-  f.isInt({ max, min }).bail().withMessage(message);
   return f;
 };
 
